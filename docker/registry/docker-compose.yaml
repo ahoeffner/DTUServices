@@ -1,11 +1,11 @@
 services:
-  schema-server:
+  registry:
     image: nginx:alpine
-    container_name: datamodel
+    container_name: registry
     ports:
       - "9000:80"
     volumes:
-      - ../../contracts:/usr/share/nginx/html:ro
+      - ../../registry:/usr/share/nginx/html:ro
       - ./header.html:/etc/nginx/includes/header.html:ro
 
     command: >
