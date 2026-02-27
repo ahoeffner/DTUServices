@@ -5,7 +5,7 @@ services:
     ports:
       - "9000:80"
     volumes:
-      - ../../../contracts:/usr/share/nginx/html:ro
+      - ../../contracts:/usr/share/nginx/html:ro
       - ./header.html:/etc/nginx/includes/header.html:ro
 
     command: >
