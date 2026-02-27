@@ -1,9 +1,12 @@
+source bin/activate
+pip install -r requirements
+
 #
 # On windows, just run
 # pyinstaller --onefile Secrets.py --name load-secrets-win
 # and mv load-secrets-win ../../bin/windows/load-secrets
 #
-#
+
 pyinstaller --onefile Secrets.py --name load-secrets-mac
 
 docker run --rm --platform linux/amd64 -v $(pwd):/src/ -w /src/ python:3.9-slim \
