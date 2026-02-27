@@ -1,0 +1,40 @@
+services:
+  schema-server:
+    image: nginx:alpine
+    container_name: datamodel
+    ports:
+      - "9000:80"
+    volumes:
+      - ../../../contracts:/usr/share/nginx/html:ro
+      - ./header.html:/etc/nginx/includes/header.html:ro
+
+    command: >
+          /bin/sh -c "echo '
+          server {
+            listen 80;
+            default_type text/yaml;
+
+            autoindex on;
+            index index.nothing;
+            root /usr/share/nginx/html;
+            add_before_body /header.html;
+
+            location = /header.html {alias /etc/nginx/includes/header.html;}
+
+            location / {
+              autoindex on;
+              location ~* \.(yaml|yml)$$ {
+                types { }
+                default_type text/yaml;
+                add_header Content-Disposition inline;
+                add_header X-Content-Type-Options nosniff;
+              }
+            }
+          }' > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+
+    networks:
+      - dtu-services
+
+networks:
+  dtu-services:
+    external: true

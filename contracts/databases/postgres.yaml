@@ -1,0 +1,27 @@
+databases:
+  dev:
+    description: "My local test db"
+    jdbc-test: "select 1"
+    jdbc-url: "jdbc:postgresql://localhost:5432/db"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "org.postgresql.Driver"
+    pool-name: "Postgres-Hikari-Pool"
+
+  test:
+    description: "My local test db"
+    jdbc-test: "select 1"
+    jdbc-url: "jdbc:postgresql://localhost:5432/db"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "org.postgresql.Driver"
+    pool-name: "Postgres-Hikari-Pool"
+
+  prod:
+    description: "My local test db"
+    jdbc-test: "select 1"
+    jdbc-url: "jdbc:postgresql://localhost:5432/db"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "org.postgresql.Driver"
+    pool-name: "Postgres-Hikari-Pool"

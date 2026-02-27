@@ -1,0 +1,81 @@
+openapi: 3.0.3
+
+info:
+  title: Book Inventory Service
+  version: 1.0.0
+  description: >
+    A specialized service for managing a library catalog.
+    This API allows for retrieving individual book details, listing the entire collection,
+    and registering new titles into the database.
+
+security:
+  - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:
+      $ref: 'http://config/openapi/shared-api.yml#/securitySchemes/bearerAuth'
+
+paths:
+  /books/{id}:
+    get:
+      operationId: getById
+      summary: Fetch specific book details
+      description: >
+        Retrieves comprehensive information about a single book using its unique 64-bit integer identifier.
+        Use this when you have a specific ID and need the full metadata (title, author, etc.).
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The unique numeric ID of the book (e.g., 101).
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Successfully retrieved the book details.
+          content:
+            application/json:
+              schema:
+                $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+        '404':
+          description: No book was found with the provided ID.
+
+  /books:
+    get:
+      operationId: getAll
+      summary: List all available books
+      description: >
+        Returns a complete list of all books currently registered in the inventory.
+        Useful for browsing the collection or performing a broad search.
+      responses:
+        '200':
+          description: A list of book objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+
+    post:
+      operationId: add
+      summary: Register a new book
+      description: >
+        Adds a new book record to the library. The request body must contain
+        the valid book data model. Use this to expand the inventory.
+      requestBody:
+        description: The book object that needs to be persisted.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+      responses:
+        '201':
+          description: Book successfully created and saved.
+          content:
+            application/json:
+              schema:
+                $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'

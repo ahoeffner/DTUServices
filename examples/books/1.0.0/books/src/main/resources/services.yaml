@@ -1,0 +1,15 @@
+openapi: 3.0.3
+info:
+  title: External Service Client Index
+  version: 1.0.0
+#paths:
+#  /employees:
+#    get:
+#      tags:
+#        - HR
+#      $ref: './services/HR.yaml#/paths/employees/get'
+#  /payslips:
+#    get:
+#      tags:
+#        - Payroll
+#      $ref: './services/Payroll.yaml#/paths/payslips/get'

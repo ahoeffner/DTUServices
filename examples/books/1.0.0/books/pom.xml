@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    This is a generic Maven POM file for dtu rest services.
+    Change the artifactId to match your service name.
+
+    OBSERVE:
+        - The OpenAPI spec is expected to be in "src/main/resources/api.yaml".
+
+    Run "mvn compile -P generate" to generate the sources from the OpenAPI spec.
+    Run "mvn package" to generate the "fat" jar, that can be deployed to docker.
+
+    Run "mvn spring-boot:run" to start the service, and go to http://localhost:50000/swagger-ui.html to see the Swagger UI.
+    If package'd java -jar target/<service jar> works as well
+
+    Make sure you have Docker installed and running, as the OpenAPI generator
+    uses a Docker container to bundle the OpenAPI spec using Redocly.
+-->
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <java.version>25</java.version>
+        <lombok.version>1.18.42</lombok.version>
+        <cleanthat.version>2.20</cleanthat.version>
+        <springdoc.version>2.8.5</springdoc.version>
+        <spring-boot.version>4.0.2</spring-boot.version>
+        <org.mapstruct.version>1.6.3</org.mapstruct.version>
+        <exec-maven-plugin.version>3.6.3</exec-maven-plugin.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven-antrun-plugin.version>3.2.0</maven-antrun-plugin.version>
+        <dtu-service-library.version>1.0.0</dtu-service-library.version>
+        <spotless-maven-plugin.version>3.2.1</spotless-maven-plugin.version>
+        <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
+        <openapi-generator-cli.version>v7.19.0</openapi-generator-cli.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+        <jackson-databind-nullable.version>0.2.9</jackson-databind-nullable.version>
+        <build-helper-maven-plugin.version>3.6.1</build-helper-maven-plugin.version>
+    </properties>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>dtu.services</groupId>
+    <artifactId>Books</artifactId>
+    <version>1.0.0</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-restclient</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openapitools</groupId>
+            <artifactId>jackson-databind-nullable</artifactId>
+            <version>${jackson-databind-nullable.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${org.mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>dtu.services</groupId>
+            <artifactId>dtu-service-library</artifactId>
+            <version>${dtu-service-library.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc11</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>${lombok-mapstruct-binding.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>${project.build.directory}/generated-sources/openapi/src/main/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>dtu.services.Application</mainClass>
+                    <jvmArguments>
+                        --enable-native-access=ALL-UNNAMED
+                    </jvmArguments>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>generate</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>${maven-antrun-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>create-target-dir</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <mkdir dir="${project.build.directory}"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>${exec-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>bundle-openapi</id>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker</executable>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>--rm</argument>
+                                        <argument>--network</argument>
+                                        <argument>dtu-services</argument>
+                                        <argument>-v</argument>
+                                        <argument>${project.basedir}:/spec</argument>
+                                        <argument>redocly/cli</argument>
+                                        <argument>bundle</argument>
+                                        <argument>/spec/src/main/resources/api.yaml</argument>
+                                        <argument>-o</argument>
+                                        <argument>/spec/target/${project.artifactId}.yaml</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+
+                            <execution>
+                                <id>generate-public-api</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker</executable>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>--rm</argument>
+                                        <argument>--network</argument>
+                                        <argument>dtu-services</argument>
+                                        <argument>-v</argument>
+                                        <argument>${project.basedir}:/local</argument>
+                                        <argument>openapitools/openapi-generator-cli:${openapi-generator-cli.version}</argument>
+                                        <argument>generate</argument>
+                                        <argument>--global-property</argument>
+                                        <argument>models,apis</argument>
+                                        <argument>-i</argument>
+                                        <argument>/local/target/${project.artifactId}.yaml</argument>
+                                        <argument>-g</argument>
+                                        <argument>spring</argument>
+                                        <argument>-o</argument>
+                                        <argument>/local/target/generated-sources/openapi</argument>
+                                        <argument>--api-package</argument>
+                                        <argument>dtu.services.api</argument>
+                                        <argument>--model-package</argument>
+                                        <argument>dtu.services.api.model</argument>
+                                        <argument>--library</argument>
+                                        <argument>spring-boot</argument>
+                                        <argument>--additional-properties=interfaceOnly=true,useJakartaEe=true,jakarta=true,openApiNullable=false,suppressDefaultAdditionalProperties=true,fluentSetter=true,useGetterNames=true,beanMethods=false,skipDefaultInterface=true</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+
+                            <execution>
+                                <id>generate-internal-sources</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker</executable>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>--rm</argument>
+                                        <argument>--network</argument>
+                                        <argument>dtu-services</argument>
+                                        <argument>-v</argument>
+                                        <argument>${project.basedir}:/local</argument>
+                                        <argument>openapitools/openapi-generator-cli:${openapi-generator-cli.version}</argument>
+                                        <argument>generate</argument>
+                                        <argument>--global-property</argument>
+                                        <argument>models</argument>
+                                        <argument>-i</argument>
+                                        <argument>/local/src/main/resources/Schemas.yaml</argument>
+                                        <argument>-g</argument>
+                                        <argument>spring</argument>
+                                        <argument>-o</argument>
+                                        <argument>/local/target/generated-sources/openapi</argument>
+                                        <argument>--library</argument>
+                                        <argument>spring-boot</argument>
+                                        <argument>--model-package</argument>
+                                        <argument>dtu.services.internal.model</argument>
+                                        <argument>--skip-validate-spec</argument>
+                                        <argument>--additional-properties=useJakartaEe=true,jakarta=true,openApiNullable=false,suppressDefaultAdditionalProperties=true,fluentSetter=true,useGetterNames=true,beanMethods=false,generateApis=false,generateSupportingFiles=false</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+
+                            <execution>
+                                <id>generate-external-clients</id>
+                                <phase>generate-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>docker</executable>
+                                    <arguments>
+                                        <argument>run</argument>
+                                        <argument>--rm</argument>
+                                        <argument>--network</argument>
+                                        <argument>dtu-services</argument>
+                                        <argument>-v</argument>
+                                        <argument>${project.basedir}:/local</argument>
+                                        <argument>openapitools/openapi-generator-cli:${openapi-generator-cli.version}</argument>
+                                        <argument>generate</argument>
+                                        <argument>-i</argument>
+                                        <argument>/local/src/main/resources/services.yaml</argument>
+                                        <argument>-g</argument>
+                                        <argument>java</argument>
+                                        <argument>-o</argument>
+                                        <argument>/local/target/generated-sources/openapi</argument>
+                                        <argument>--library</argument>
+                                        <argument>restclient</argument>
+                                        <argument>--api-package</argument>
+                                        <argument>dtu.services.client.api</argument>
+                                        <argument>--model-package</argument>
+                                        <argument>dtu.services.client.model</argument>
+                                        <argument>--skip-validate-spec</argument>
+                                        <argument>--additional-properties=useJakartaEe=true,jakarta=true,openApiNullable=false,generateClientAsBean=true,useBeanValidation=true,performBeanValidation=true</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>com.diffplug.spotless</groupId>
+                        <artifactId>spotless-maven-plugin</artifactId>
+                        <version>${spotless-maven-plugin.version}</version>
+                        <configuration>
+                            <java>
+                                <includes>
+                                    <include>target/generated-sources/openapi/**/*.java</include>
+                                </includes>
+                                <replace>
+                                    <name>Spring4 Nullable Fix</name>
+                                    <search>import org.springframework.lang.Nullable;</search>
+                                    <replacement>import org.jspecify.annotations.Nullable;</replacement>
+                                </replace>
+                                <replace>
+                                    <name>Spring4 NonNull Fix</name>
+                                    <search>import org.springframework.lang.NonNull;</search>
+                                    <replacement>import org.jspecify.annotations.NonNull;</replacement>
+                                </replace>
+                                <importOrder>
+                                    <order>java,jakarta,org,com</order>
+                                </importOrder>
+                                <removeUnusedImports />
+                                <cleanthat>
+                                    <version>${cleanthat.version}</version>
+                                    <mutators>
+                                        <mutator>UnusedImport</mutator>
+                                    </mutators>
+                                </cleanthat>
+                            </java>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>spotless-apply-on-generate</id>
+                                <phase>process-sources</phase>
+                                <goals>
+                                    <goal>apply</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>${maven-compiler-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>compile-generated-and-mappers</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>compile</goal>
+                                </goals>
+                                <configuration>
+                                    <annotationProcessorPaths>
+                                        <path>
+                                            <groupId>org.projectlombok</groupId>
+                                            <artifactId>lombok</artifactId>
+                                            <version>${lombok.version}</version>
+                                        </path>
+                                        <path>
+                                            <groupId>org.projectlombok</groupId>
+                                            <artifactId>lombok-mapstruct-binding</artifactId>
+                                            <version>${lombok-mapstruct-binding.version}</version>
+                                        </path>
+                                        <path>
+                                            <groupId>org.mapstruct</groupId>
+                                            <artifactId>mapstruct-processor</artifactId>
+                                            <version>${org.mapstruct.version}</version>
+                                        </path>
+                                    </annotationProcessorPaths>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>

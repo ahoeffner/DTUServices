@@ -1,0 +1,19 @@
+type: object
+description: A representation of Book.
+
+required:
+  - id
+  - title
+  - author
+
+properties:
+  id:
+    type: integer
+    format: int64
+
+  title:
+    type: string
+    minLength: 3
+
+  author:
+    type: string

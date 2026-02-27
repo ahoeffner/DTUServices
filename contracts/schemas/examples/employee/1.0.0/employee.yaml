@@ -1,0 +1,48 @@
+type: object
+description: A representation of a corporate employee for use across HR and Payroll systems.
+
+required:
+  - id
+  - firstName
+  - lastName
+  - email
+  - status
+
+properties:
+  id:
+    type: string
+    format: uuid
+    description: Unique identifier for the employee.
+    example: "123e4567-e89b-12d3-a456-426614174000"
+
+  firstName:
+    type: string
+    example: "Jane"
+
+  lastName:
+    type: string
+    example: "Doe"
+
+  email:
+    type: string
+    format: email
+    example: "jane.doe@company.com"
+
+  department:
+    # Example of a reference to the data-model repo
+    $ref: 'http://schemas/examples/department/v1/department.yaml'
+
+  employmentDate:
+    type: string
+    format: date
+    example: "2023-01-15"
+
+  status:
+    type: string
+    enum: [active, inactive, on-leave, terminated]
+    default: active
+
+  metadata:
+    type: object
+    additionalProperties: true
+    description: Flexible object for service-specific extension data.

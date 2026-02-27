@@ -1,0 +1,22 @@
+#
+# On windows, just run
+# pyinstaller --onefile Secrets.py --name load-secrets-win
+# and mv load-secrets-win ../../bin/windows/load-secrets
+#
+#
+pyinstaller --onefile Secrets.py --name load-secrets-mac
+
+docker run --rm --platform linux/amd64 -v $(pwd):/src/ -w /src/ python:3.9-slim \
+    /bin/bash -c "\
+    apt-get update && \
+    apt-get install -y binutils && \
+    pip install -r requirements && \
+    pyinstaller --onefile Secrets.py --name load-secrets-linux"
+
+rm *.spec
+mv dist/* .
+rm -rf dist
+rm -rf __pycache__
+
+mv load-secrets-mac ../../bin/mac/load-secrets
+mv load-secrets-linux ../../bin/linux/load-secrets

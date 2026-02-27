@@ -1,0 +1,21 @@
+# Docker Compose file for Books service
+# Use docker-compose up --build --force-recreate -d
+# to build and start the service
+
+services:
+  books-service:
+    build: .
+    image: books:1.0
+
+    ports:
+      - "50000:50000"
+
+    environment:
+      - SPRING_PROFILES_ACTIVE=test
+
+    networks:
+      - dtu-services
+
+networks:
+  rest-api-network:
+    external: true

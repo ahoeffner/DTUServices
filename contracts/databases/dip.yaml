@@ -1,0 +1,27 @@
+connection:
+  dev:
+    description: "DIP Development"
+    jdbc-test: "select 1"
+    jdbc-url: "jdbc:sqlserver://mssql-host:1433;databaseName=ReportingDB;encrypt=true;trustServerCertificate=true"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    pool-name: "MSSQL-Hikari-Pool"
+
+  test:
+    description: "DIP Test"
+    jdbc-test: "select 1"
+    jdbc-url: "jdbc:sqlserver://mssql-host:1433;databaseName=ReportingDB;encrypt=true;trustServerCertificate=true"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    pool-name: "MSSQL-Hikari-Pool"
+
+  prod:
+    description: "DIP Production"
+    jdbc-test: "select 1"
+    jdbc-url: "jdbc:sqlserver://mssql-host:1433;databaseName=ReportingDB;encrypt=true;trustServerCertificate=true"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    pool-name: "MSSQL-Hikari-Pool"

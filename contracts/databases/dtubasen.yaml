@@ -1,0 +1,27 @@
+databases:
+  dev:
+    description: "DTUBasen Development"
+    jdbc-test: "select 1 from dual"
+    jdbc-url: "jdbc:oracle:thin:@oracle-host:1521:xe"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "oracle.jdbc.OracleDriver"
+    pool-name: "Oracle-Hikari-Pool"
+
+  test:
+    description: "DTUBasen Test"
+    jdbc-test: "select 1 from dual"
+    jdbc-url: "jdbc:oracle:thin:@oracle-host:1521:xe"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "oracle.jdbc.OracleDriver"
+    pool-name: "Oracle-Hikari-Pool"
+
+  prod:
+    description: "DTUBasen Production"
+    jdbc-test: "select 1 from dual"
+    jdbc-url: "jdbc:oracle:thin:@oracle-host:1521:xe"
+    username: ${username}
+    password: ${password}
+    driver-class-name: "oracle.jdbc.OracleDriver"
+    pool-name: "Oracle-Hikari-Pool"

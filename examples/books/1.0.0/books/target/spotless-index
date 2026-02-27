@@ -1,0 +1,17 @@
+ReeuvsFVlF95oidBSY8+Bzi5FF45US/zY+pPESuwBx8=
+target/generated-sources/openapi/src/main/java/dtu/services/api/BooksApi.java 2026-02-27T10:25:27.295829470Z
+target/generated-sources/openapi/src/main/java/dtu/services/api/model/Bog.java 2026-02-27T10:25:27.287833323Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/ApiClient.java 2026-02-27T10:25:27.316263984Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/BeanValidationException.java 2026-02-27T10:25:26.634460022Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/JavaTimeFormatter.java 2026-02-27T10:25:26.619378272Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/RFC3339DateFormat.java 2026-02-27T10:25:27.339335631Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/RFC3339InstantDeserializer.java 2026-02-27T10:25:26.637905657Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/RFC3339JavaTimeModule.java 2026-02-27T10:25:27.323937797Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/ServerConfiguration.java 2026-02-27T10:25:26.615331553Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/ServerVariable.java 2026-02-27T10:25:26.616394056Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/StringUtil.java 2026-02-27T10:25:26.620562442Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/auth/ApiKeyAuth.java 2026-02-27T10:25:26.624758912Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/auth/Authentication.java 2026-02-27T10:25:26.635780859Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/auth/HttpBasicAuth.java 2026-02-27T10:25:26.621952696Z
+target/generated-sources/openapi/src/main/java/dtu/services/client/auth/HttpBearerAuth.java 2026-02-27T10:25:27.333479490Z
+target/generated-sources/openapi/src/main/java/dtu/services/internal/model/Book.java 2026-02-27T10:25:27.278796923Z

@@ -1,0 +1,9 @@
+openapi: 3.0.3
+info:
+  title: External Service Client Index
+  version: 1.0.0
+servers:
+- url: /
+components:
+  schemas: {}
+

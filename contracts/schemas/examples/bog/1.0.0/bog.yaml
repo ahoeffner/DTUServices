@@ -1,0 +1,20 @@
+type: object
+description: Definition af en bog.
+
+required:
+  - id
+  - title
+  - forfatter
+
+
+properties:
+  id:
+    type: integer
+    format: int64
+
+  titel:
+    type: string
+    minLength: 3
+
+  forfatter:
+    type: string

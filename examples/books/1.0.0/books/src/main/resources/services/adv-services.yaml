@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: External Service Clients Index
+  version: 1.0.0
+
+# Just some hints for the services.yaml
+# 1. Paths: We point to the operations in the external files.
+# If you want separate Java API classes (HrApi vs TimecardApi),
+# ensure the source files use different 'tags'.
+paths:
+  /hr/employees:
+    get:
+      summary: Get HR Employees
+      tags:
+        - HR
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HrEmployee'
+
+  /timecard/employees:
+    get:
+      summary: Get Timecard Employees
+      tags:
+        - Timecard
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimecardEmployee'
+
+# 2. Components: This is where we solve the "Employee" name clash.
+# We create unique names here and point them to the specific external files.
+components:
+  schemas:
+    HrEmployee:
+      description: Employee data structure from the HR Service
+      $ref: './HR.api#/components/schemas/Employee'
+
+    TimecardEmployee:
+      description: Employee data structure from the Timecard Service
+      $ref: './Timecard.api#/components/schemas/Employee'

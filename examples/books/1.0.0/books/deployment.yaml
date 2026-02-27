@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: books
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: books
+  template:
+    metadata:
+      labels:
+        app: books
+    spec:
+      containers:
+      - name: books
+        image: dtu-books:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 50000
+        # Best Practice: Limit memory so Java doesn't crash the node
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+        env:
+        # Tells Java to use 75% of the container memory for the Heap
+        - name: JAVA_TOOL_OPTIONS
+          value: "-XX:MaxRAMPercentage=75.0"
+
+        - name: SPRING_PROFILES_ACTIVE
+          value: "prod"
+
+        - name: DTU_VAULT_ROLE
+          value: "dtu-services"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: books-service
+spec:
+  type: ClusterIP # Internal K8s IP
+  selector:
+    app: books
+  ports:
+  - port: 80
+    targetPort: 50000

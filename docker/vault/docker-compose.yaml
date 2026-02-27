@@ -1,0 +1,56 @@
+# Be aware that it takes a while until the dtu mount-point
+# is actually ready. When running docker compose up -d, it
+# looks like it starts immediately, but it might not work right away
+
+services:
+  vault:
+    image: hashicorp/vault:latest
+    container_name: vault
+
+    ports:
+      - "9001:8200"
+
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "dtu" # Fixed token for zero-intervention dev
+      VAULT_ADDR: "http://0.0.0.0:9001"
+
+    cap_add:
+      - IPC_LOCK
+
+    volumes:
+      - vault-data:/vault/file
+      - vault-logs:/vault/logs
+
+    networks:
+      - dtu-services
+
+  vault-init:
+      image: hashicorp/vault:latest
+      container_name: vault-init
+
+      environment:
+        VAULT_ADDR: "http://vault:8200"
+        VAULT_TOKEN: "dtu"
+
+      entrypoint: >
+        sh -c "sleep 10 && vault secrets enable -path=dtu kv-v2 || true"
+
+      volumes:
+        - vault-data:/vault/file
+        - vault-logs:/vault/logs
+
+      networks:
+        - dtu-services
+
+      depends_on:
+        - vault
+
+networks:
+  dtu-services:
+    external: true
+
+volumes:
+  vault-data:
+    external: true
+  vault-logs:
+    external: true
