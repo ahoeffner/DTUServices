@@ -19,6 +19,7 @@ docker run --rm --platform linux/amd64 -v $(pwd):/src/ -w /src/ python:3.9-slim 
 rm *.spec
 mv dist/* .
 rm -rf dist
+rm -rf build
 rm -rf __pycache__
 
 mv load-secrets-mac ../../bin/mac/load-secrets
