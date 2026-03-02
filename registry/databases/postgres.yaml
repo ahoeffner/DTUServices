@@ -1,4 +1,4 @@
-databases:
+properties:
   dev:
     description: "My local test db"
     jdbc-test: "select 1"

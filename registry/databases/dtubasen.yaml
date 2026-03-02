@@ -1,4 +1,4 @@
-databases:
+properties:
   dev:
     description: "DTUBasen Development"
     jdbc-test: "select 1 from dual"

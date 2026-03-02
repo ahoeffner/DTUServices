@@ -1,4 +1,4 @@
-connection:
+properties:
   dev:
     description: "DIP Development"
     jdbc-test: "select 1"
