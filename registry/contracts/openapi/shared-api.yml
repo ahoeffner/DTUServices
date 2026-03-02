@@ -1,0 +1,15 @@
+securitySchemes:
+  bearerAuth:
+    type: http
+    scheme: bearer
+    bearerFormat: JWT
+
+components:
+  schemas:
+    StandardHeader:
+      type: object
+      properties:
+        callingSystem:
+          type: string
+        # As you get wiser, add more fields here:
+        # traceId: { type: string }

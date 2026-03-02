@@ -14,7 +14,7 @@ security:
 components:
   securitySchemes:
     bearerAuth:
-      $ref: 'http://config/openapi/shared-api.yml#/securitySchemes/bearerAuth'
+      $ref: 'http://registry/contracts/openapi/shared-api.yml#/securitySchemes/bearerAuth'
 
 paths:
   /books/{id}:
@@ -38,7 +38,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+                $ref: 'http://registry/schemas/examples/bog/1.0.0/bog.yaml'
         '404':
           description: No book was found with the provided ID.
 
@@ -57,7 +57,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+                  $ref: 'http://registry/schemas/examples/bog/1.0.0/bog.yaml'
 
     post:
       operationId: add
@@ -71,11 +71,11 @@ paths:
         content:
           application/json:
             schema:
-              $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+              $ref: 'http://registry/schemas/examples/bog/1.0.0/bog.yaml'
       responses:
         '201':
           description: Book successfully created and saved.
           content:
             application/json:
               schema:
-                $ref: 'http://datamodel/examples/bog/1.0.0/bog.yaml'
+                $ref: 'http://registry/schemas/examples/bog/1.0.0/bog.yaml'

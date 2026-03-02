@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Manager1
+      POSTGRES_DB: db
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    networks:
+      - dtu-services
+
+volumes:
+  postgres:
+    name: postgres
+
+networks:
+  dtu-services:
+    external: true

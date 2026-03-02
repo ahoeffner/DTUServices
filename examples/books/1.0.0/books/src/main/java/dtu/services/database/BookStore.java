@@ -24,7 +24,7 @@ public class BookStore
     public void insert(Bog bog)
     {
         Book book = transformer.getBook(bog);
-        JdbcTemplate db = databases.getJdbcTemplate("test");
+        JdbcTemplate db = databases.getJdbcTemplate("postgres");
         String sql = "insert into books (id, title, author) values (?, ?, ?)";
         db.update(sql, book.getId(), book.getTitle(), book.getAuthor());
     }
@@ -33,7 +33,7 @@ public class BookStore
     public Bog getById(Long id)
     {
         String sql = "select * from books where id = ?";
-        JdbcTemplate db = databases.getJdbcTemplate("test");
+        JdbcTemplate db = databases.getJdbcTemplate("postgres");
         List<Book> books = db.query(sql, new DataClassRowMapper<>(Book.class),id);
 
         if (books.isEmpty()) return(null);
@@ -44,7 +44,7 @@ public class BookStore
     public List<Bog> getAll()
     {
         String sql = "select * from books";
-        JdbcTemplate db = databases.getJdbcTemplate("test");
+        JdbcTemplate db = databases.getJdbcTemplate("postgres");
         List<Book> books = db.query(sql, new DataClassRowMapper<>(Book.class));
         return(transformer.getBog(books));
     }

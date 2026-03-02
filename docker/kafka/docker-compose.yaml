@@ -1,0 +1,52 @@
+name: kafka
+
+services:
+  kafka:
+    image: apache/kafka:latest
+    container_name: kafka-server
+
+    ports:
+      - "9092:9092"
+    environment:
+      # 1. Identification
+      - KAFKA_NODE_ID=1
+      - KAFKA_PROCESS_ROLES=broker,controller
+
+      # 2. Listeners Configuration
+      # We define two listeners: one for external (9092) and one for controller communication (9093)
+      - KAFKA_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
+
+      # 3. Cluster Setup (Single Node)
+      - KAFKA_CONTROLLER_QUORUM_VOTERS=1@localhost:9093
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR=1
+      - KAFKA_TRANSACTION_STATE_LOG_MIN_ISR=1
+      - KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS=0
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+      - kafka-logs:/opt/kafka/logs
+      - kafka-secrets:/etc/kafka/secrets
+      - kafka-config:/mnt/shared/config
+
+    networks:
+      - dtu-services
+
+networks:
+  dtu-services:
+    external: true
+
+volumes:
+  kafka-data:
+    external: true
+
+  kafka-logs:
+    external: true
+
+  kafka-config:
+    external: true
+
+  kafka-secrets:
+    external: true
