@@ -1,0 +1,57 @@
+type: object
+properties:
+  locationId:
+    type: integer
+    format: int64
+  locationCode:
+    type: string
+  locationName:
+    type: string
+  description:
+    type: string
+  addressLine1:
+    type: string
+  addressLine2:
+    type: string
+  addressLine3:
+    type: string
+  addressLine4:
+    type: string
+  city:
+    type: string
+  region:
+    type: string
+  region2:
+    type: string
+  country:
+    type: string
+  postalCode:
+    type: string
+  telephoneCountryCode:
+    type: string
+  telephoneAreaCode:
+    type: string
+  telephoneNumber:
+    type: string
+  faxCountryCode:
+    type: string
+  faxAreaCode:
+    type: string
+  faxNumber:
+    type: string
+  status:
+    type: string
+  legalAddress:
+    type: boolean
+  effectiveStartDate:
+    type: string
+    format: date
+  effectiveEndDate:
+    type: string
+    format: date
+  creationDate:
+    type: string
+    format: date-time
+  lastUpdateDate:
+    type: string
+    format: date-time

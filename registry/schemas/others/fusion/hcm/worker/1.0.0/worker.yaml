@@ -1,0 +1,156 @@
+type: object
+properties:
+  personId:
+    type: integer
+    format: int64
+  personNumber:
+    type: string
+  salutation:
+    type: string
+  firstName:
+    type: string
+  middleName:
+    type: string
+  lastName:
+    type: string
+  previousLastName:
+    type: string
+  nameSuffix:
+    type: string
+  displayName:
+    type: string
+  preferredName:
+    type: string
+  honors:
+    type: string
+  correspondenceLanguage:
+    type: string
+  workPhoneCountryCode:
+    type: string
+  workPhoneAreaCode:
+    type: string
+  workPhoneNumber:
+    type: string
+  workPhoneExtension:
+    type: string
+  workFaxCountryCode:
+    type: string
+  workFaxAreaCode:
+    type: string
+  workFaxNumber:
+    type: string
+  workFaxExtension:
+    type: string
+  workMobilePhoneCountryCode:
+    type: string
+  workMobilePhoneAreaCode:
+    type: string
+  workMobilePhoneNumber:
+    type: string
+  workMobilePhoneExtension:
+    type: string
+  homePhoneCountryCode:
+    type: string
+  homePhoneAreaCode:
+    type: string
+  homePhoneNumber:
+    type: string
+  homePhoneExtension:
+    type: string
+  homeFaxCountryCode:
+    type: string
+  homeFaxAreaCode:
+    type: string
+  homeFaxNumber:
+    type: string
+  homeFaxExtension:
+    type: string
+  workEmail:
+    type: string
+  addressLine1:
+    type: string
+  addressLine2:
+    type: string
+  addressLine3:
+    type: string
+  city:
+    type: string
+  region:
+    type: string
+  region2:
+    type: string
+  country:
+    type: string
+  postalCode:
+    type: string
+  dateOfBirth:
+    type: string
+    format: date
+  ethnicity:
+    type: string
+  legalEntityId:
+    type: integer
+    format: int64
+  hireDate:
+    type: string
+    format: date
+  terminationDate:
+    type: string
+    format: date
+  gender:
+    type: string
+  maritalStatus:
+    type: string
+  nationalIdType:
+    type: string
+  nationalId:
+    type: string
+  nationalIdCountry:
+    type: string
+  nationalIdExpirationDate:
+    type: string
+    format: date
+  effectiveStartDate:
+    type: string
+    format: date
+  userName:
+    type: string
+  citizenshipId:
+    type: integer
+    format: int64
+  citizenshipStatus:
+    type: string
+  citizenshipLegislationCode:
+    type: string
+  citizenshipToDate:
+    type: string
+    format: date
+  religion:
+    type: string
+  religionId:
+    type: integer
+    format: int64
+  passportIssueDate:
+    type: string
+    format: date
+  passportNumber:
+    type: string
+  passportId:
+    type: integer
+    format: int64
+  passportExpirationDate:
+    type: string
+    format: date
+  licenseNumber:
+    type: string
+  driversLicenseId:
+    type: integer
+    format: int64
+  militaryVetStatus:
+    type: string
+  creationDate:
+    type: string
+    format: date-time
+  lastUpdateDate:
+    type: string
+    format: date-time
