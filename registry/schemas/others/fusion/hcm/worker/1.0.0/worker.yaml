@@ -5,24 +5,30 @@ properties:
     format: int64
   personNumber:
     type: string
-  salutation:
-    type: string
-  firstName:
-    type: string
-  middleName:
-    type: string
-  lastName:
-    type: string
-  previousLastName:
-    type: string
-  nameSuffix:
-    type: string
-  displayName:
-    type: string
-  preferredName:
-    type: string
-  honors:
-    type: string
+  names:
+    type: array
+    items:
+      title: WorkerName
+      type: object
+      properties:
+        salutation:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        previousLastName:
+          type: string
+        nameSuffix:
+          type: string
+        displayName:
+          type: string
+        preferredName:
+          type: string
+        honors:
+          type: string
   correspondenceLanguage:
     type: string
   workPhoneCountryCode:
@@ -65,24 +71,40 @@ properties:
     type: string
   homeFaxExtension:
     type: string
-  workEmail:
-    type: string
-  addressLine1:
-    type: string
-  addressLine2:
-    type: string
-  addressLine3:
-    type: string
-  city:
-    type: string
-  region:
-    type: string
-  region2:
-    type: string
-  country:
-    type: string
-  postalCode:
-    type: string
+  emails:
+    type: array
+    items:
+      title: WorkerEmail
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        emailType:
+          type: string
+        primaryFlag:
+          type: boolean
+  addresses:
+    type: array
+    items:
+      title: WorkerAddress
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        region2:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
   dateOfBirth:
     type: string
     format: date
@@ -101,15 +123,23 @@ properties:
     type: string
   maritalStatus:
     type: string
-  nationalIdType:
-    type: string
-  nationalId:
-    type: string
-  nationalIdCountry:
-    type: string
-  nationalIdExpirationDate:
-    type: string
-    format: date
+  nationalIdentifiers:
+    type: array
+    items:
+      title: NationalIdentifier
+      type: object
+      properties:
+        nationalIdentifierNumber:
+          type: string
+        nationalIdentifierType:
+          type: string
+        legislationCode:
+          type: string
+        expirationDate:
+          type: string
+          format: date
+        primaryFlag:
+          type: boolean
   effectiveStartDate:
     type: string
     format: date
