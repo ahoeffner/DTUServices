@@ -31,46 +31,24 @@ properties:
           type: string
   correspondenceLanguage:
     type: string
-  workPhoneCountryCode:
-    type: string
-  workPhoneAreaCode:
-    type: string
-  workPhoneNumber:
-    type: string
-  workPhoneExtension:
-    type: string
-  workFaxCountryCode:
-    type: string
-  workFaxAreaCode:
-    type: string
-  workFaxNumber:
-    type: string
-  workFaxExtension:
-    type: string
-  workMobilePhoneCountryCode:
-    type: string
-  workMobilePhoneAreaCode:
-    type: string
-  workMobilePhoneNumber:
-    type: string
-  workMobilePhoneExtension:
-    type: string
-  homePhoneCountryCode:
-    type: string
-  homePhoneAreaCode:
-    type: string
-  homePhoneNumber:
-    type: string
-  homePhoneExtension:
-    type: string
-  homeFaxCountryCode:
-    type: string
-  homeFaxAreaCode:
-    type: string
-  homeFaxNumber:
-    type: string
-  homeFaxExtension:
-    type: string
+  phones:
+    type: array
+    items:
+      title: WorkerPhone
+      type: object
+      properties:
+        phoneType:
+          type: string
+        countryCode:
+          type: string
+        areaCode:
+          type: string
+        phoneNumber:
+          type: string
+        extension:
+          type: string
+        primaryFlag:
+          type: boolean
   emails:
     type: array
     items:
@@ -110,15 +88,23 @@ properties:
     format: date
   ethnicity:
     type: string
-  legalEntityId:
-    type: integer
-    format: int64
-  hireDate:
-    type: string
-    format: date
-  terminationDate:
-    type: string
-    format: date
+  workRelationships:
+    type: array
+    items:
+      title: WorkerWorkRelationship
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        legalEntityId:
+          type: integer
+          format: int64
+        primaryFlag:
+          type: boolean
   gender:
     type: string
   maritalStatus:
@@ -140,9 +126,6 @@ properties:
           format: date
         primaryFlag:
           type: boolean
-  effectiveStartDate:
-    type: string
-    format: date
   userName:
     type: string
   citizenshipId:
