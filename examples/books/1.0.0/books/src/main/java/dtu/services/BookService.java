@@ -6,6 +6,9 @@ import dtu.services.api.model.Bog;         // The generated resource model
 import dtu.services.database.BookStore;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.ResponseEntity;
+
+import dtu.services.library.config.OAuth2;
+import dtu.services.library.config.OAuth2Server;
 import dtu.services.library.config.events.DTUEvents;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +39,7 @@ public class BookService implements BooksApi
     @Override
     public ResponseEntity<List<Bog>> getAll()
     {
+        dtu.services.library.config.OAuth2.authenticate(OAuth2Server.FUSION_HCM);
         List<Bog> books = bookstore.getAll();
         return(ResponseEntity.ok(books));
     }
