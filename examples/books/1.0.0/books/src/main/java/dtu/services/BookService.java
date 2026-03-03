@@ -6,8 +6,6 @@ import dtu.services.api.model.Bog;         // The generated resource model
 import dtu.services.database.BookStore;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.ResponseEntity;
-
-import dtu.services.library.config.OAuth2;
 import dtu.services.library.config.OAuth2Server;
 import dtu.services.library.config.events.DTUEvents;
 import org.springframework.web.bind.annotation.RestController;
