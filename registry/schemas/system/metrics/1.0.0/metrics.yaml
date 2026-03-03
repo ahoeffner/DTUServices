@@ -1,0 +1,74 @@
+type: object
+description: Root object containing service identification and performance metrics.
+required:
+  - serviceName
+  - serviceVersion
+  - libraryVersion
+  - endpoints
+properties:
+  serviceName:
+    type: string
+    description: The name of the service from spring.application.name.
+    example: "book-inventory-service"
+  serviceVersion:
+    type: string
+    description: The version of the service from service.version.
+    example: "1.0.0"
+  libraryVersion:
+    type: string
+    description: The version of the metrics library.
+    example: "1.2.3"
+  endpoints:
+    type: array
+    description: List of REST endpoints and their performance stats.
+    items:
+      type: object
+      required:
+        - path
+        - method
+        - status
+      properties:
+        path:
+          type: string
+          description: The URI of the endpoint.
+          example: "/books"
+        method:
+          type: string
+          description: The HTTP method used.
+          example: "GET"
+        status:
+          type: array
+          description: Metrics grouped by HTTP response code.
+          items:
+            type: object
+            required:
+              - code
+              - calls
+              - avgResponseTime
+              - minResponseTime
+              - maxResponseTime
+            properties:
+              code:
+                type: integer
+                description: The HTTP status code.
+                example: 200
+              calls:
+                type: integer
+                format: int64
+                description: Total number of calls for this status code.
+                example: 1500
+              avgResponseTime:
+                type: number
+                format: double
+                description: Average response time in milliseconds.
+                example: 45.5
+              minResponseTime:
+                type: number
+                format: double
+                description: Lowest response time recorded.
+                example: 12.0
+              maxResponseTime:
+                type: number
+                format: double
+                description: Highest response time recorded.
+                example: 450.2

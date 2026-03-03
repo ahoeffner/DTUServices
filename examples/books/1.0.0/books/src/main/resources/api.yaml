@@ -79,3 +79,16 @@ paths:
             application/json:
               schema:
                 $ref: 'http://registry/schemas/examples/bog/1.0.0/bog.yaml'
+
+  /metrics:
+    get:
+      operationId: metrics
+      summary: Retrieve service performance metrics
+      description: Returns service metadata and performance statistics grouped by endpoint and HTTP status code.
+      responses:
+        '200':
+          description: Performance metrics successfully retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: 'http://registry/schemas/system/metrics/1.0.0/metrics.yaml'
