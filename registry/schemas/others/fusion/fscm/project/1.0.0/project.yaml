@@ -1,0 +1,35 @@
+type: object
+properties:
+  projectId:
+    type: integer
+    format: int64
+  projectNumber:
+    type: string
+  projectName:
+    type: string
+  projectDescription:
+    type: string
+  projectStartDate:
+    type: string
+    format: date
+  projectEndDate:
+    type: string
+    format: date
+  projectStatus:
+    type: string
+  projectStatusCode:
+    type: string
+  projectTypeName:
+    type: string
+  businessUnitName:
+    type: string
+  owningOrganizationName:
+    type: string
+  projectManagerName:
+    type: string
+  projectCurrencyCode:
+    type: string
+  sourceTemplateName:
+    type: string
+  legalEntityName:
+    type: string

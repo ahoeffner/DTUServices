@@ -1,0 +1,169 @@
+type: object
+properties:
+  personId:
+    type: integer
+    format: int64
+  personNumber:
+    type: string
+  names:
+    type: array
+    items:
+      title: WorkerName
+      type: object
+      properties:
+        salutation:
+          type: string
+        firstName:
+          type: string
+        middleName:
+          type: string
+        lastName:
+          type: string
+        previousLastName:
+          type: string
+        nameSuffix:
+          type: string
+        displayName:
+          type: string
+        preferredName:
+          type: string
+        honors:
+          type: string
+  correspondenceLanguage:
+    type: string
+  phones:
+    type: array
+    items:
+      title: WorkerPhone
+      type: object
+      properties:
+        phoneType:
+          type: string
+        countryCode:
+          type: string
+        areaCode:
+          type: string
+        phoneNumber:
+          type: string
+        extension:
+          type: string
+        primaryFlag:
+          type: boolean
+  emails:
+    type: array
+    items:
+      title: WorkerEmail
+      type: object
+      properties:
+        emailAddress:
+          type: string
+        emailType:
+          type: string
+        primaryFlag:
+          type: boolean
+  addresses:
+    type: array
+    items:
+      title: WorkerAddress
+      type: object
+      properties:
+        addressLine1:
+          type: string
+        addressLine2:
+          type: string
+        addressLine3:
+          type: string
+        city:
+          type: string
+        region:
+          type: string
+        region2:
+          type: string
+        country:
+          type: string
+        postalCode:
+          type: string
+  dateOfBirth:
+    type: string
+    format: date
+  ethnicity:
+    type: string
+  workRelationships:
+    type: array
+    items:
+      title: WorkerWorkRelationship
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date
+        terminationDate:
+          type: string
+          format: date
+        legalEntityId:
+          type: integer
+          format: int64
+        primaryFlag:
+          type: boolean
+  gender:
+    type: string
+  maritalStatus:
+    type: string
+  nationalIdentifiers:
+    type: array
+    items:
+      title: NationalIdentifier
+      type: object
+      properties:
+        nationalIdentifierNumber:
+          type: string
+        nationalIdentifierType:
+          type: string
+        legislationCode:
+          type: string
+        expirationDate:
+          type: string
+          format: date
+        primaryFlag:
+          type: boolean
+  userName:
+    type: string
+  citizenshipId:
+    type: integer
+    format: int64
+  citizenshipStatus:
+    type: string
+  citizenshipLegislationCode:
+    type: string
+  citizenshipToDate:
+    type: string
+    format: date
+  religion:
+    type: string
+  religionId:
+    type: integer
+    format: int64
+  passportIssueDate:
+    type: string
+    format: date
+  passportNumber:
+    type: string
+  passportId:
+    type: integer
+    format: int64
+  passportExpirationDate:
+    type: string
+    format: date
+  licenseNumber:
+    type: string
+  driversLicenseId:
+    type: integer
+    format: int64
+  militaryVetStatus:
+    type: string
+  creationDate:
+    type: string
+    format: date-time
+  lastUpdateDate:
+    type: string
+    format: date-time

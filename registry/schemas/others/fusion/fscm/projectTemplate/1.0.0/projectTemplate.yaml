@@ -1,0 +1,43 @@
+type: object
+description: A Fusion Cloud project template defining default settings for new projects.
+
+required:
+  - projectTemplateId
+  - projectTemplateName
+
+properties:
+  projectTemplateId:
+    type: integer
+    format: int64
+
+  projectTemplateName:
+    type: string
+
+  projectTemplateNumber:
+    type: string
+
+  projectTemplateDescription:
+    type: string
+
+  projectTemplateStartDate:
+    type: string
+    format: date
+
+  projectTemplateEndDate:
+    type: string
+    format: date
+
+  businessUnitName:
+    type: string
+
+  legalEntityName:
+    type: string
+
+  projectTypeName:
+    type: string
+
+  initialProjectStatus:
+    type: string
+
+  projectCurrencyCode:
+    type: string
