@@ -112,7 +112,7 @@ properties:
   nationalIdentifiers:
     type: array
     items:
-      title: NationalIdentifier
+      title: WorkerNationalIdentifier
       type: object
       properties:
         nationalIdentifierNumber:
@@ -128,37 +128,61 @@ properties:
           type: boolean
   userName:
     type: string
-  citizenshipId:
-    type: integer
-    format: int64
-  citizenshipStatus:
-    type: string
-  citizenshipLegislationCode:
-    type: string
-  citizenshipToDate:
-    type: string
-    format: date
-  religion:
-    type: string
-  religionId:
-    type: integer
-    format: int64
-  passportIssueDate:
-    type: string
-    format: date
-  passportNumber:
-    type: string
-  passportId:
-    type: integer
-    format: int64
-  passportExpirationDate:
-    type: string
-    format: date
-  licenseNumber:
-    type: string
-  driversLicenseId:
-    type: integer
-    format: int64
+  citizenships:
+    type: array
+    items:
+      title: WorkerCitizenship
+      type: object
+      properties:
+        citizenshipId:
+          type: integer
+          format: int64
+        citizenshipStatus:
+          type: string
+        citizenshipLegislationCode:
+          type: string
+        citizenshipToDate:
+          type: string
+          format: date
+  passports:
+    type: array
+    items:
+      title: WorkerPassport
+      type: object
+      properties:
+        passportType:
+          type: string
+        passportNumber:
+          type: string
+        PassportId:
+          type: string
+        issuingCountry:
+          type: string
+        issuingCountryName:
+          type: string
+        expirationDate:
+          type: string
+          format: date
+  driverLicenses:
+    type: array
+    items:
+      title: WorkerDriverLicense
+      type: object
+      properties:
+        driversLicenseId:
+          type: integer
+          format: int64
+        licenseNumber:
+          type: string
+        licenseType:
+          type: string
+        issuingCountry:
+          type: string
+        issuingCountryName:
+          type: string
+        expirationDate:
+          type: string
+          format: date
   militaryVetStatus:
     type: string
   creationDate:
