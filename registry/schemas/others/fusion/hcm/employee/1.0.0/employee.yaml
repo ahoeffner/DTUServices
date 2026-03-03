@@ -101,6 +101,11 @@ properties:
           type: boolean
   userName:
     type: string
+  organizationId:
+    type: integer
+    format: int64
+  orgNumber:
+    type: string
   citizenships:
     type: array
     items:
