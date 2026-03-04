@@ -1,2 +1,4 @@
-curl -v 'http://localhost:8080/books'
-
+curl -i -X POST https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token \
+  -u "8cc619d9660047ffa7e8bcd3823da9ee:[idcscs-b3c94bfe-88d1-481c-84a4-1d47822800fe]" \
+  -H "Content-Type: application/x-www-form-urlencoded" \
+  -d "grant_type=client_credentials&scope=https://fa-abcd-dev.fa.ocs.oraclecloud.com:443/All"
