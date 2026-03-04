@@ -1,34 +1,15 @@
+title: Employee
 type: object
 properties:
   personId:
     type: integer
     format: int64
-  personNumber:
+  employeeNumber:
     type: string
-  names:
-    type: array
-    items:
-      title: WorkerName
-      type: object
-      properties:
-        salutation:
-          type: string
-        firstName:
-          type: string
-        middleName:
-          type: string
-        lastName:
-          type: string
-        previousLastName:
-          type: string
-        nameSuffix:
-          type: string
-        displayName:
-          type: string
-        preferredName:
-          type: string
-        honors:
-          type: string
+  firstName:
+    type: string
+  lastName:
+    type: string
   correspondenceLanguage:
     type: string
   phones:
@@ -49,18 +30,10 @@ properties:
           type: string
         primaryFlag:
           type: boolean
-  emails:
-    type: array
-    items:
-      title: WorkerEmail
-      type: object
-      properties:
-        emailAddress:
-          type: string
-        emailType:
-          type: string
-        primaryFlag:
-          type: boolean
+  emailAddress:
+    type: string
+  emailType:
+    type: string
   addresses:
     type: array
     items:
@@ -127,6 +100,11 @@ properties:
         primaryFlag:
           type: boolean
   userName:
+    type: string
+  organizationId:
+    type: integer
+    format: int64
+  orgNumber:
     type: string
   citizenships:
     type: array
