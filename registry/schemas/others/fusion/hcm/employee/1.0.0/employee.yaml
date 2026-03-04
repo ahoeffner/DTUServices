@@ -169,6 +169,15 @@ properties:
           format: date
   militaryVetStatus:
     type: string
+  businessTitle:
+    type: string
+  titleEn:
+    type: string
+  titleDk:
+    type: string
+  dateStart:
+    type: string
+    format: date
   creationDate:
     type: string
     format: date-time
