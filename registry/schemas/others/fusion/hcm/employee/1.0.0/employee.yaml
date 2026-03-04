@@ -54,45 +54,6 @@ properties:
         citizenshipToDate:
           type: string
           format: date
-  passports:
-    type: array
-    items:
-      title: WorkerPassport
-      type: object
-      properties:
-        passportType:
-          type: string
-        passportNumber:
-          type: string
-        PassportId:
-          type: string
-        issuingCountry:
-          type: string
-        issuingCountryName:
-          type: string
-        expirationDate:
-          type: string
-          format: date
-  driverLicenses:
-    type: array
-    items:
-      title: WorkerDriverLicense
-      type: object
-      properties:
-        driversLicenseId:
-          type: integer
-          format: int64
-        licenseNumber:
-          type: string
-        licenseType:
-          type: string
-        issuingCountry:
-          type: string
-        issuingCountryName:
-          type: string
-        expirationDate:
-          type: string
-          format: date
   militaryVetStatus:
     type: string
   businessTitle:
