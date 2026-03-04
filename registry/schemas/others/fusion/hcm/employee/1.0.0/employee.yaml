@@ -178,6 +178,15 @@ properties:
   dateStart:
     type: string
     format: date
+  actualTerminationDate:
+    type: string
+    format: date
+  projectedAssignmentEnd:
+    type: string
+    format: date
+  supervisorPersonId:
+    type: integer
+    format: int64
   creationDate:
     type: string
     format: date-time
