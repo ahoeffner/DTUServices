@@ -10,20 +10,9 @@ properties:
     type: string
   lastName:
     type: string
-  correspondenceLanguage:
-    type: string
   emailAddress:
     type: string
   emailType:
-    type: string
-  dateOfBirth:
-    type: string
-    format: date
-  ethnicity:
-    type: string
-  gender:
-    type: string
-  maritalStatus:
     type: string
   userName:
     type: string
@@ -37,24 +26,6 @@ properties:
   assignmentType:
     type: string
   nameType:
-    type: string
-  citizenships:
-    type: array
-    items:
-      title: WorkerCitizenship
-      type: object
-      properties:
-        citizenshipId:
-          type: integer
-          format: int64
-        citizenshipStatus:
-          type: string
-        citizenshipLegislationCode:
-          type: string
-        citizenshipToDate:
-          type: string
-          format: date
-  militaryVetStatus:
     type: string
   businessTitle:
     type: string
@@ -103,9 +74,6 @@ properties:
     type: string
   cwisNumber:
     type: string
-  creationDate:
-    type: string
-    format: date-time
   lastUpdateDate:
     type: string
     format: date-time
