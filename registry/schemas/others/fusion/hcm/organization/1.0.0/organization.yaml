@@ -1,0 +1,59 @@
+type: object
+properties:
+  organizationId:
+    type: integer
+    format: int64
+  orgName:
+    type: string
+  orgNameEn:
+    type: string
+  orgNameDk:
+    type: string
+  orgNumber:
+    type: string
+  orgLevel:
+    type: string
+  orgUnitType:
+    type: string
+  activeStatus:
+    type: string
+  activeOrgNumberSort:
+    type: string
+  status:
+    type: string
+    description: "'A' = Active, 'I' = Inactive"
+  classificationCode:
+    type: string
+  locationId:
+    type: integer
+    format: int64
+  locationCode:
+    type: string
+  address1:
+    type: string
+  address2:
+    type: string
+  building:
+    type: string
+  floor:
+    type: string
+  city:
+    type: string
+  postalCode:
+    type: string
+  parentOrganizationId:
+    type: integer
+    format: int64
+  parentName:
+    type: string
+  parentNameEn:
+    type: string
+  parentNameDk:
+    type: string
+  parentNumber:
+    type: string
+  parentUnitType:
+    type: string
+  lastUpdateDate:
+    type: string
+    format: date-time
