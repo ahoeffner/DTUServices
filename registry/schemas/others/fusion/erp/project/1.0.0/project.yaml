@@ -19,9 +19,20 @@ properties:
     type: string
   projectStatusCode:
     type: string
-  projectTypeName:
+  projectTypeId:
+    type: integer
+    format: int64
+  projectType:
     type: string
   businessUnitName:
+    type: string
+  projectUnitId:
+    type: integer
+    format: int64
+  workTypeId:
+    type: integer
+    format: int64
+  capitalCostTypeCode:
     type: string
   owningOrganizationName:
     type: string
