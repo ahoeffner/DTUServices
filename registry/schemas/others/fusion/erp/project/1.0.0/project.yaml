@@ -32,6 +32,8 @@ properties:
   workTypeId:
     type: integer
     format: int64
+  capitalCostTypeCode:
+    type: string
   owningOrganizationName:
     type: string
   projectManagerName:
