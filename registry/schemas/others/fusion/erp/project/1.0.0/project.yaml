@@ -12,10 +12,7 @@ properties:
   projectStartDate:
     type: string
     format: date
-  projectEndDate:
-    type: string
-    format: date
-  projectStatus:
+  projectStatusName:
     type: string
   projectStatusCode:
     type: string
@@ -23,8 +20,6 @@ properties:
     type: integer
     format: int64
   projectType:
-    type: string
-  businessUnitName:
     type: string
   projectUnitId:
     type: integer
@@ -34,13 +29,27 @@ properties:
     format: int64
   capitalCostTypeCode:
     type: string
-  owningOrganizationName:
-    type: string
   projectManagerName:
     type: string
   projectCurrencyCode:
     type: string
-  sourceTemplateName:
+  sourceTemplateId:
+    type: integer
+    format: int64
+  legalEntityId:
+    type: integer
+    format: int64
+  owningOrganizationId:
+    type: integer
+    format: int64
+  enableBillingFlag:
+    type: boolean
+  enableCapitalizationFlag:
+    type: boolean
+  priorityCode:
     type: string
-  legalEntityName:
+  serviceTypeCode:
     type: string
+  projectEndDate:
+    type: string
+    format: date
