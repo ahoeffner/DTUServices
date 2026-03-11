@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600">
+
+<!-- Cloud -->
+<ellipse cx="700" cy="250" rx="380" ry="180" fill="#E1F5FF" stroke="#999" stroke-width="2" />
+
+<!-- Source boxes -->
+<rect x="50" y="80" width="220" height="70" fill="#FFFFFF" stroke="#888" stroke-width="2" />
+<text x="60" y="120" font-size="22" fill="#000">Oracle Fusion apps</text>
+
+<rect x="50" y="200" width="220" height="70" fill="#FFFFFF" stroke="#888" stroke-width="2" />
+<text x="60" y="240" font-size="22" fill="#000">DTUBasen</text>
+
+<rect x="50" y="320" width="220" height="70" fill="#FFFFFF" stroke="#888" stroke-width="2" />
+<text x="60" y="360" font-size="22" fill="#000">Student Source</text>
+
+<!-- Adapters group -->
+<rect x="320" y="40" width="260" height="360" fill="#EEF4FF" stroke="#666" stroke-width="2" />
+<text x="330" y="80" font-size="24" fill="#000">Adapters</text>
+
+<!-- Adapter boxes -->
+<rect x="340" y="100" width="220" height="70" fill="#DCEAFF" stroke="#666" stroke-width="2" />
+<text x="350" y="140" font-size="22" fill="#000">Employee Adapter</text>
+
+<rect x="340" y="210" width="220" height="70" fill="#DCEAFF" stroke="#666" stroke-width="2" />
+<text x="350" y="250" font-size="22" fill="#000">Employee Adapter</text>
+
+<rect x="340" y="320" width="220" height="70" fill="#DCEAFF" stroke="#666" stroke-width="2" />
+<text x="350" y="360" font-size="22" fill="#000">Student Adapter</text>
+
+<!-- Services group -->
+<rect x="620" y="40" width="260" height="360" fill="#EEF4FF" stroke="#666" stroke-width="2" />
+<text x="630" y="80" font-size="24" fill="#000">Services</text>
+
+<!-- Service boxes -->
+<rect x="640" y="150" width="220" height="70" fill="#C6D8FF" stroke="#666" stroke-width="2" />
+<text x="650" y="190" font-size="22" fill="#000">Employee Service</text>
+
+<rect x="640" y="280" width="220" height="70" fill="#C6D8FF" stroke="#666" stroke-width="2" />
+<text x="650" y="320" font-size="22" fill="#000">Student Service</text>
+
+<!-- Consumers -->
+<rect x="950" y="150" width="220" height="70" fill="#FFFFFF" stroke="#888" stroke-width="2" />
+<text x="960" y="190" font-size="22" fill="#000">SIS</text>
+
+<rect x="950" y="280" width="220" height="70" fill="#FFFFFF" stroke="#888" stroke-width="2" />
+<text x="960" y="320" font-size="22" fill="#000">Application XXX</text>
+
+<!-- Arrows (grey) -->
+<line x1="270" y1="115" x2="340" y2="135" stroke="#777" stroke-width="4" />
+<line x1="270" y1="235" x2="340" y2="245" stroke="#777" stroke-width="4" />
+<line x1="270" y1="355" x2="340" y2="355" stroke="#777" stroke-width="4" />
+
+<line x1="560" y1="135" x2="640" y2="185" stroke="#777" stroke-width="4" />
+<line x1="560" y1="245" x2="640" y2="185" stroke="#777" stroke-width="4" />
+<line x1="560" y1="355" x2="640" y2="315" stroke="#777" stroke-width="4" />
+
+<line x1="860" y1="185" x2="950" y2="185" stroke="#777" stroke-width="4" />
+<line x1="860" y1="185" x2="950" y2="315" stroke="#777" stroke-width="4" />
+<line x1="860" y1="315" x2="950" y2="315" stroke="#777" stroke-width="4" />
+
+</svg>
