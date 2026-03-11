@@ -1,0 +1,88 @@
+type: object
+properties:
+  taskId:
+    type: integer
+    format: int64
+  taskNumber:
+    type: string
+  taskName:
+    type: string
+  taskDescription:
+    type: string
+  taskStartDate:
+    type: string
+    format: date
+  taskFinishDate:
+    type: string
+    format: date
+  taskActualStartDate:
+    type: string
+    format: date
+  taskActualFinishDate:
+    type: string
+    format: date
+  taskLevel:
+    type: integer
+    format: int32
+  taskSequence:
+    type: integer
+    format: int64
+  parentTaskId:
+    type: integer
+    format: int64
+  topTaskId:
+    type: integer
+    format: int64
+  billableFlag:
+    type: boolean
+  chargeableFlag:
+    type: boolean
+  capitalizableFlag:
+    type: boolean
+  milestoneFlag:
+    type: boolean
+  criticalFlag:
+    type: boolean
+  elementType:
+    type: string
+  externalTaskId:
+    type: string
+  taskManagerName:
+    type: string
+  taskManagerEmail:
+    type: string
+  taskManagerPersonId:
+    type: integer
+    format: int64
+  taskOrganizationId:
+    type: integer
+    format: int64
+  taskOrganizationName:
+    type: string
+  workTypeId:
+    type: integer
+    format: int64
+  workType:
+    type: string
+  serviceTypeCode:
+    type: string
+  serviceType:
+    type: string
+  progressStatusCode:
+    type: string
+  taskPercentComplete:
+    type: number
+    format: double
+  taskPhysicalPercentComplete:
+    type: number
+    format: double
+  lowestLevelTask:
+    type: string
+  transactionControlFlag:
+    type: boolean
+  transactionStartDate:
+    type: string
+    format: date
+  transactionCompletionDate:
+    type: string
+    format: date

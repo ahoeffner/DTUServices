@@ -29,8 +29,6 @@ properties:
     format: int64
   capitalCostTypeCode:
     type: string
-  projectManagerName:
-    type: string
   projectCurrencyCode:
     type: string
   sourceTemplateId:
