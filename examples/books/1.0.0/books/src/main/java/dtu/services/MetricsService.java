@@ -18,8 +18,6 @@ public class MetricsService implements MetricsApi
     private MetricsAggregator metrics;
     private static final ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
 
-
-
     @Override
     public ResponseEntity<Metrics> metrics()
     {

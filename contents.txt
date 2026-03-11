@@ -1,0 +1,32 @@
+Data model:
+  - One source of truth
+  - Docker for development
+
+
+Library:
+  - Metrics
+  - Security
+  - Error handling
+  - Intercepters (pass on oauth token...)
+  - Transparent for developers. Part of maven build
+  
+  
+Spring boot framework ++:
+  - Design first (OpenApi3.2)
+  - Creates java objects from OpenApi spec
+  - Packages all in one file. Including the gold standard Tomcat
+  
+  
+Extras:
+  - Instant AI enabling
+  - Dockerfile for test and 
+  - Kubernetes deployment definition
+
+
+Challenges
+  - Knowledge about OAuth.
+  - Knowledge about Fusion rest services
+
+  - Still no access to 
+      - DTUBasen
+      - DIP database
