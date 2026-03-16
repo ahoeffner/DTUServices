@@ -1,25 +1,24 @@
 oauth2:
   dev:
     type: "oracle"
-    scope: "https://efzu-dev8.fa.em2.oraclecloud.com:443/offline_access"
-    client-id: "8cc619d9660047ffa7e8bcd3823da9ee"
-    client-secret: "idcscs-b3c94bfe-88d1-481c-84a4-1d47822800fe"
+    client-id: "8d61a81587924a75af305021ff15ff67"
+    client-secret: "idcscs-f405d9da-cec5-4c8f-9609-cf378ed3519b"
+    scope: "urn:opc:resource:fa:instanceid=636425130urn:opc:resource:consumer::all"
     issuer-uri: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com"
     token-endpoint: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token"
 
   test:
     type: "oracle"
-    scope: "https://fa-abcd-dev.fa.ocs.oraclecloud.com:443/All"
-    client-id: "8cc619d9660047ffa7e8bcd3823da9ee"
-    client-secret: "idcscs-b3c94bfe-88d1-481c-84a4-1d47822800fe"
+    client-id: "8d61a81587924a75af305021ff15ff67"
+    client-secret: "idcscs-f405d9da-cec5-4c8f-9609-cf378ed3519b"
+    scope: "urn:opc:resource:fa:instanceid=636425130urn:opc:resource:consumer::all"
     issuer-uri: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com"
     token-endpoint: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token"
 
-
   prod:
     type: "oracle"
-    scope: "https://fa-abcd-dev.fa.ocs.oraclecloud.com:443/All"
-    client-id: "your-prod-id"
-    client-secret: "your-prod-secret"
+    client-id: "8d61a81587924a75af305021ff15ff67"
+    client-secret: "idcscs-f405d9da-cec5-4c8f-9609-cf378ed3519b"
+    scope: "urn:opc:resource:fa:instanceid=636425130urn:opc:resource:consumer::all"
     issuer-uri: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com"
     token-endpoint: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token"

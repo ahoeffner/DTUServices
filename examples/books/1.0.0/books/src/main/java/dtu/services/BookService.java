@@ -36,6 +36,9 @@ public class BookService implements BooksApi
     @Override
     public ResponseEntity<List<Bog>> getAll()
     {
+        dtu.services.library.config.OAuth2.setOutgoingProvider("fusion");
+        String token = dtu.services.library.config.OAuth2.getToken();
+        System.out.println("!!!!! "+token+" !!!!!");
         List<Bog> books = bookstore.getAll();
         return(ResponseEntity.ok(books));
     }
