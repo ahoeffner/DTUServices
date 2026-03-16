@@ -4,7 +4,7 @@ oauth2:
     client-id: "8d61a81587924a75af305021ff15ff67"
     client-secret: "idcscs-f405d9da-cec5-4c8f-9609-cf378ed3519b"
     scope: "urn:opc:resource:fa:instanceid=636425130urn:opc:resource:consumer::all"
-    issuer-uri: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com"
+    issuer-uri: "https://identity.oraclecloud.com/"
     token-endpoint: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token"
 
   test:
