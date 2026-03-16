@@ -51,3 +51,15 @@ properties:
   projectEndDate:
     type: string
     format: date
+  projectCompletionDate:
+    type: string
+    format: date
+    description: >
+      The date on which project work was completed, derived from the most recent
+      PENDING_CLOSE entry in the project's status history.
+  projectClosedDate:
+    type: string
+    format: date
+    description: >
+      The date on which the project was fully closed, derived from the most recent
+      CLOSED entry in the project's status history.
