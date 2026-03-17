@@ -1,4 +1,5 @@
 type: object
+title: ProjectTemplate
 description: A Fusion Cloud project template defining default settings for new projects.
 
 required:
