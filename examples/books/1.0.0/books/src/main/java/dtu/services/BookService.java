@@ -4,9 +4,9 @@ import java.util.List;
 import dtu.services.api.BooksApi;          // The generated interface
 import dtu.services.api.model.Bog;         // The generated resource model
 import dtu.services.database.BookStore;
+import dtu.services.library.events.DTUEvents;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.ResponseEntity;
-import dtu.services.library.config.events.DTUEvents;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -36,9 +36,6 @@ public class BookService implements BooksApi
     @Override
     public ResponseEntity<List<Bog>> getAll()
     {
-        dtu.services.library.config.OAuth2.setOutgoingProvider("fusion");
-        String token = dtu.services.library.config.OAuth2.getToken();
-
         List<Bog> books = bookstore.getAll();
         return(ResponseEntity.ok(books));
     }

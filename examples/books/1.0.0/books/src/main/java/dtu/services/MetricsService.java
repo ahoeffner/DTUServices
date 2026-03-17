@@ -2,10 +2,10 @@ package dtu.services;
 
 import dtu.services.api.MetricsApi;
 import dtu.services.api.model.Metrics;
+import tools.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.dataformat.yaml.YAMLFactory;
 import dtu.services.library.metrics.MetricsAggregator;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 

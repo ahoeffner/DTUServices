@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import dtu.services.api.model.Bog;
 import org.springframework.stereotype.Component;
-import dtu.services.library.config.events.DTUSubscriber;
+import dtu.services.library.events.DTUSubscriber;
 
 
 @Component
