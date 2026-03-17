@@ -1,4 +1,5 @@
 type: object
+title: Metrics
 description: Root object containing service identification and performance metrics.
 required:
   - serviceName
