@@ -2,7 +2,7 @@ properties:
   dev:
     description: "DIP Development"
     jdbc-test: "select 1"
-    jdbc-url: "jdbc:sqlserver://mssql-host:1433;databaseName=ReportingDB;encrypt=true;trustServerCertificate=true"
+    jdbc-url: "jdbc:sqlserver://PINTEGRA01\\PRODSQL2019:1433;databaseName=TX_HUB_Topics;encrypt=true;trustServerCertificate=true;authenticationScheme=NTLM;domain=WIN"
     username: ${username}
     password: ${password}
     driver-class-name: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
