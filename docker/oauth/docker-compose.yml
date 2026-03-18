@@ -1,0 +1,25 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.1 # Using the latest stable version
+    command: start-dev
+    environment:
+      # Database Configuration
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/oauth
+      KC_DB_USERNAME: oauth
+      KC_DB_PASSWORD: Manager1
+      
+      # Admin Credentials
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: Manager1
+      
+      # Required if you're using a reverse proxy/domain later
+      # KC_HOSTNAME: localhost 
+    ports:
+      - "9002:8080"
+    networks:
+      - dtu-services
+
+networks:
+  dtu-services:
+    external: true
