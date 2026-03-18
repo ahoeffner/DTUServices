@@ -2,7 +2,7 @@ oauth2:
   dev:
     type: "oracle"
     scope: "urn:opc:resource:fa:instanceid=636425130urn:opc:resource:consumer::all"
-    issuer-uri: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/admin/v1/SigningCert/jwk"
+    issuer-uri: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com"
     token-endpoint: "https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token"
 
   test:
