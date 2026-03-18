@@ -1,25 +1,30 @@
-module dtu.services.books
+module your.consumer.project
 {
+    // Misc
+    requires org.jspecify;
+    requires java.compiler;
+
+    // Common APIs
     requires dtu.services.library;
-    requires io.swagger.v3.oas.annotations;
+
+    // Json handlers
+    requires jakarta.annotation;
+    requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
     requires com.fasterxml.jackson.annotation;
     requires com.fasterxml.jackson.datatype.jsr310;
-    requires jakarta.annotation;
-    requires jakarta.validation;
-    requires org.jspecify;
-    requires java.compiler;
-    requires static lombok;
-    requires org.mapstruct;
 
-    // 1. Change this to match the package where Application.java resides
-    opens dtu.services to spring.core, spring.beans, spring.context;
+    // OpenAPI/Swagger access
+    requires io.swagger.v3.oas.models;
+    requires io.swagger.v3.oas.annotations;
 
-    // 2. Add an open for your specific logic package if it is different
-    // (e.g., if your controllers/services are in dtu.services.books)
-    // opens dtu.services.books to spring.core, spring.beans, spring.context;
+    // Standard Spring requirements for a consumer app
+    requires spring.web;
+    requires spring.boot;
+    requires spring.context;
+    requires spring.boot.autoconfigure;
 
-    opens dtu.services.api to spring.core, spring.beans, spring.context, spring.web;
+    // Allow reflection for the generated models
     opens dtu.services.api.model to tools.jackson.databind;
-    opens dtu.services.transformations to spring.core;
+    opens dtu.services.internal.model to tools.jackson.databind;
 }
