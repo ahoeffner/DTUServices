@@ -1,4 +1,0 @@
-curl -i -X POST https://idcs-29860bdceeda4551a4bcab7ae60a83cd.identity.oraclecloud.com/oauth2/v1/token \
-  -H "Authorization: Basic OGQ2MWE4MTU4NzkyNGE3NWFmMzA1MDIxZmYxNWZmNjc6aWRjc2NzLWY0MDVkOWRhLWNlYzUtNGM4Zi05NjA5LWNmMzc4ZWQzNTE5Yg==" \
-  -H "Content-Type: application/x-www-form-urlencoded" \
-  -d "grant_type=client_credentials&scope=urn:opc:resource:fa:instanceid=636425130urn:opc:resource:consumer::all"
