@@ -7,6 +7,7 @@ import dtu.services.database.BookStore;
 import dtu.services.library.events.DTUEvents;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.http.ResponseEntity;
+import dtu.services.library.resources.OAuthProviders;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,6 +20,9 @@ public class BookService implements BooksApi
 
     @Autowired
     private BookStore bookstore;
+
+    @Autowired
+    private OAuthProviders providers;
 
 
     @Override
@@ -36,6 +40,12 @@ public class BookService implements BooksApi
     @Override
     public ResponseEntity<List<Bog>> getAll()
     {
+        System.out.println("user: "+providers.getUser());
+        System.out.println("roles:");
+
+        for(String role : providers.getRoles())
+            System.out.println("    "+role);
+
         List<Bog> books = bookstore.getAll();
         return(ResponseEntity.ok(books));
     }
