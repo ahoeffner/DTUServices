@@ -8,10 +8,12 @@ import tools.jackson.dataformat.yaml.YAMLFactory;
 import dtu.services.library.metrics.MetricsAggregator;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 
 
 
 @RestController
+//@SecurityRequirement(name = "KeycloakAuth")
 public class MetricsService implements MetricsApi
 {
     @Autowired

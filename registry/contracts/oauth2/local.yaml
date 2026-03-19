@@ -2,17 +2,17 @@ oauth2:
   dev:
     type: "keycloak"
     scope: "openid profile email"
-    issuer-uri: "http://localhost:8080/realms/dtu-service-users"
-    token-endpoint: "http://localhost:8080/realms/dtu-service-users/protocol/openid-connect/token"
+    issuer-uri: "http://localhost:9002/realms/dtu-service-users"
+    token-endpoint: "http://localhost:9002/realms/dtu-service-users/protocol/openid-connect/token"
 
   test:
     type: "keycloak"
     scope: "openid profile email"
-    issuer-uri: "http://localhost:8080/realms/dtu-service-users"
-    token-endpoint: "http://localhost:8080/realms/dtu-service-users/protocol/openid-connect/token"
+    issuer-uri: "http://localhost:9002/realms/dtu-service-users"
+    token-endpoint: "http://localhost:9002/realms/dtu-service-users/protocol/openid-connect/token"
 
   prod:
     type: "keycloak"
     scope: "openid profile email"
-    issuer-uri: "http://localhost:8080/realms/dtu-service-users"
-    token-endpoint: "http://localhost:8080/realms/dtu-service-users/protocol/openid-connect/token"
+    issuer-uri: "http://localhost:9002/realms/dtu-service-users"
+    token-endpoint: "http://localhost:9002/realms/dtu-service-users/protocol/openid-connect/token"
