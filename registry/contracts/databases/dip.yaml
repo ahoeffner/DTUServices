@@ -2,9 +2,7 @@ properties:
   dev:
     description: "DIP Development"
     jdbc-test: "select 1"
-    jdbc-url: "jdbc:sqlserver://PINTEGRA01\\PRODSQL2019:1433;databaseName=TX_HUB_Topics;encrypt=true;trustServerCertificate=true;authenticationScheme=NTLM;domain=WIN"
-    username: ${username}
-    password: ${password}
+    jdbc-url: "jdbc:sqlserver://PINTEGRA01.WIN.DTU.DK:1433;databaseName=TX_HUB_Topics;encrypt=true;trustServerCertificate=true;integratedSecurity=true;authenticationScheme=JavaKerberos;serverSpn=MSSQLSvc/PINTEGRA01.WIN.DTU.DK:1433@WIN.DTU.DK"
     driver-class-name: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     pool-name: "MSSQL-Hikari-Pool"
 
