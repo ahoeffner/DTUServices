@@ -1,0 +1,51 @@
+{
+  "enabled": true,
+  "realm": "dtu-services",
+
+  "clients":
+  [
+    {
+      "enabled": true,
+
+      "clientId": "dtu-services",
+      "secret": "Manager1",
+
+      "clientAuthenticatorType": "client-secret",
+      "directAccessGrantsEnabled": true,
+
+      "defaultClientScopes":
+      [
+          "web-origins",
+          "roles",
+          "profile",
+          "email"
+      ],
+
+      "webOrigins": ["*"],
+      "redirectUris": ["*"]
+    }
+  ],
+  "users":
+  [
+    {
+      "enabled": true,
+      "emailVerified": true,
+      "createdTimestamp": 1774000000000,
+
+      "username": "test",
+      "email": "test@nowhere.dtu",
+      "firstName": "Test",
+      "lastName": "User",
+
+      "requiredActions": [],
+      "credentials": [
+        {
+          "type": "password",
+          "value": "Manager1",
+          "temporary": false
+        }
+      ],
+      "realmRoles": ["metrics", "books:all"]
+    }
+  ]
+}

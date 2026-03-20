@@ -1,0 +1,8 @@
+curl -X POST "http://localhost:9002/realms/dtu-services/protocol/openid-connect/token" \
+     -H "Content-Type: application/x-www-form-urlencoded" \
+     -d "username=test" \
+     -d "password=Manager1" \
+     -d "grant_type=password" \
+     -d "client_id=dtu-services" \
+     -d "client_secret=2b3efdd0-5db0-4212-9a68-7ca1cff5a4f0" \
+     -d "scope=openid profile email roles"
