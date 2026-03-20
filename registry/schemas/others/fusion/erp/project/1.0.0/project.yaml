@@ -1,53 +1,93 @@
 type: object
+required:
+  - projectId
+additionalProperties: false
 properties:
   projectId:
     type: integer
     format: int64
+    minimum: 1
   projectNumber:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[\w\-\.]+$
   projectName:
     type: string
+    minLength: 1
+    maxLength: 255
+    pattern: ^[\w\s\-\.]{1,255}$
   projectDescription:
     type: string
+    minLength: 1
+    maxLength: 2000
+    pattern: ^[\w\s\-\.]{1,2000}$
   projectStartDate:
     type: string
     format: date
   projectStatusName:
     type: string
+    minLength: 1
+    maxLength: 100
+    pattern: ^[\w\s\-]+$
   projectStatusCode:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   projectTypeId:
     type: integer
     format: int64
+    minimum: 1
   projectType:
     type: string
+    minLength: 1
+    maxLength: 100
+    pattern: ^[\w\s\-]+$
   projectUnitId:
     type: integer
     format: int64
+    minimum: 1
   workTypeId:
     type: integer
     format: int64
+    minimum: 1
   capitalCostTypeCode:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   projectCurrencyCode:
     type: string
+    minLength: 3
+    maxLength: 3
+    pattern: ^[A-Z]{3}$
   sourceTemplateId:
     type: integer
     format: int64
+    minimum: 1
   legalEntityId:
     type: integer
     format: int64
+    minimum: 1
   owningOrganizationId:
     type: integer
     format: int64
+    minimum: 1
   enableBillingFlag:
     type: boolean
   enableCapitalizationFlag:
     type: boolean
   priorityCode:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   serviceTypeCode:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   projectEndDate:
     type: string
     format: date
