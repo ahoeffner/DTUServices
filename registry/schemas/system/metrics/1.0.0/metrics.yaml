@@ -1,6 +1,7 @@
 type: object
 title: Metrics
 description: Root object containing service identification and performance metrics.
+additionalProperties: false
 required:
   - serviceName
   - serviceVersion
@@ -10,20 +11,31 @@ properties:
   serviceName:
     type: string
     description: The name of the service from spring.application.name.
+    minLength: 1
+    maxLength: 100
+    pattern: ^[a-z][a-z0-9\-]*$
     example: "book-inventory-service"
   serviceVersion:
     type: string
     description: The version of the service from service.version.
+    minLength: 1
+    maxLength: 20
+    pattern: ^\d+\.\d+\.\d+$
     example: "1.0.0"
   libraryVersion:
     type: string
     description: The version of the metrics library.
+    minLength: 1
+    maxLength: 20
+    pattern: ^\d+\.\d+\.\d+$
     example: "1.2.3"
   endpoints:
     type: array
     description: List of REST endpoints and their performance stats.
+    maxItems: 500
     items:
       type: object
+      additionalProperties: false
       required:
         - path
         - method
@@ -32,16 +44,24 @@ properties:
         path:
           type: string
           description: The URI of the endpoint.
+          minLength: 1
+          maxLength: 255
+          pattern: ^/[\w\-\./{}/]*$
           example: "/books"
         method:
           type: string
           description: The HTTP method used.
+          minLength: 3
+          maxLength: 7
+          pattern: ^(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)$
           example: "GET"
         status:
           type: array
           description: Metrics grouped by HTTP response code.
+          maxItems: 500
           items:
             type: object
+            additionalProperties: false
             required:
               - code
               - calls
@@ -52,24 +72,30 @@ properties:
               code:
                 type: integer
                 description: The HTTP status code.
+                minimum: 100
+                maximum: 599
                 example: 200
               calls:
                 type: integer
                 format: int64
                 description: Total number of calls for this status code.
+                minimum: 0
                 example: 1500
               avgResponseTime:
                 type: number
                 format: double
                 description: Average response time in milliseconds.
+                minimum: 0
                 example: 45.5
               minResponseTime:
                 type: number
                 format: double
                 description: Lowest response time recorded.
+                minimum: 0
                 example: 12.0
               maxResponseTime:
                 type: number
                 format: double
                 description: Highest response time recorded.
+                minimum: 0
                 example: 450.2

@@ -1,14 +1,27 @@
 type: object
+required:
+  - taskId
+additionalProperties: false
 properties:
   taskId:
     type: integer
     format: int64
+    minimum: 1
   taskNumber:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[\w\-\.]+$
   taskName:
     type: string
+    minLength: 1
+    maxLength: 255
+    pattern: ^[\w\s\-\.]{1,255}$
   taskDescription:
     type: string
+    minLength: 1
+    maxLength: 2000
+    pattern: ^[\w\s\-\.]{1,2000}$
   taskStartDate:
     type: string
     format: date
@@ -24,15 +37,19 @@ properties:
   taskLevel:
     type: integer
     format: int32
+    minimum: 0
   taskSequence:
     type: integer
     format: int64
+    minimum: 1
   parentTaskId:
     type: integer
     format: int64
+    minimum: 1
   topTaskId:
     type: integer
     format: int64
+    minimum: 1
   billableFlag:
     type: boolean
   chargeableFlag:
@@ -45,39 +62,77 @@ properties:
     type: boolean
   elementType:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   externalTaskId:
     type: string
+    minLength: 1
+    maxLength: 100
+    pattern: ^[\w\-\.]+$
   taskManagerName:
     type: string
+    minLength: 1
+    maxLength: 255
+    pattern: ^[\w\s\-\.]{1,255}$
   taskManagerEmail:
     type: string
+    format: email
+    minLength: 5
+    maxLength: 255
+    pattern: ^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$
   taskManagerPersonId:
     type: integer
     format: int64
+    minimum: 1
   taskOrganizationId:
     type: integer
     format: int64
+    minimum: 1
   taskOrganizationName:
     type: string
+    minLength: 1
+    maxLength: 255
+    pattern: ^[\w\s\-\.]{1,255}$
   workTypeId:
     type: integer
     format: int64
+    minimum: 1
   workType:
     type: string
+    minLength: 1
+    maxLength: 100
+    pattern: ^[\w\s\-\.]{1,100}$
   serviceTypeCode:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   serviceType:
     type: string
+    minLength: 1
+    maxLength: 100
+    pattern: ^[\w\s\-\.]{1,100}$
   progressStatusCode:
     type: string
+    minLength: 1
+    maxLength: 50
+    pattern: ^[A-Z_]+$
   taskPercentComplete:
     type: number
     format: double
+    minimum: 0
+    maximum: 100
   taskPhysicalPercentComplete:
     type: number
     format: double
+    minimum: 0
+    maximum: 100
   lowestLevelTask:
     type: string
+    minLength: 1
+    maxLength: 10
+    pattern: ^[A-Z_]+$
   transactionControlFlag:
     type: boolean
   transactionStartDate:
