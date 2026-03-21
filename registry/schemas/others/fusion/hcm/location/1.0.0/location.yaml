@@ -1,46 +1,85 @@
 type: object
+additionalProperties: false
 properties:
   locationId:
     type: integer
     format: int64
   locationCode:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9_\-]{1,30}$'
   locationName:
     type: string
+    maxLength: 240
+    pattern: "^.{1,240}$"
   description:
     type: string
+    maxLength: 2000
+    pattern: "^.{0,2000}$"
   addressLine1:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   addressLine2:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   addressLine3:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   addressLine4:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   city:
     type: string
+    maxLength: 60
+    pattern: "^.{0,60}$"
   region:
     type: string
+    maxLength: 120
+    pattern: "^.{0,120}$"
   region2:
     type: string
+    maxLength: 120
+    pattern: "^.{0,120}$"
   country:
     type: string
+    maxLength: 2
+    pattern: "^[A-Z]{2}$"
   postalCode:
     type: string
+    maxLength: 20
+    pattern: '^[A-Za-z0-9 \-]{0,20}$'
   telephoneCountryCode:
     type: string
+    maxLength: 6
+    pattern: '^\+?[0-9]{0,5}$'
   telephoneAreaCode:
     type: string
+    maxLength: 10
+    pattern: "^[0-9]{0,10}$"
   telephoneNumber:
     type: string
+    maxLength: 25
+    pattern: '^[0-9 .\-]{0,25}$'
   faxCountryCode:
     type: string
+    maxLength: 6
+    pattern: '^\+?[0-9]{0,5}$'
   faxAreaCode:
     type: string
+    maxLength: 10
+    pattern: "^[0-9]{0,10}$"
   faxNumber:
     type: string
+    maxLength: 25
+    pattern: '^[0-9 .\-]{0,25}$'
   status:
     type: string
+    maxLength: 1
+    pattern: "^[AI]$"
   legalAddress:
     type: boolean
   effectiveStartDate:

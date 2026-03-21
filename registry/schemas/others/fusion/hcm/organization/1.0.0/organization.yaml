@@ -1,59 +1,104 @@
 type: object
+additionalProperties: false
 properties:
   organizationId:
     type: integer
     format: int64
   orgName:
     type: string
+    maxLength: 240
+    pattern: "^.{1,240}$"
   orgNameEn:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   orgNameDk:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   orgNumber:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9\-]{0,30}$'
   orgLevel:
     type: string
+    maxLength: 10
+    pattern: "^[A-Za-z0-9]{0,10}$"
   orgUnitType:
     type: string
+    maxLength: 50
+    pattern: "^[A-Za-z0-9_]{0,50}$"
   activeStatus:
     type: string
+    maxLength: 1
+    pattern: "^[AI]$"
   activeOrgNumberSort:
     type: string
+    maxLength: 120
+    pattern: "^.{0,120}$"
   status:
     type: string
+    maxLength: 1
     description: "'A' = Active, 'I' = Inactive"
+    pattern: "^[AI]$"
   classificationCode:
     type: string
+    maxLength: 30
+    pattern: "^[A-Z0-9_]{1,30}$"
   locationId:
     type: integer
     format: int64
   locationCode:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9_\-]{0,30}$'
   address1:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   address2:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   building:
     type: string
+    maxLength: 120
+    pattern: "^.{0,120}$"
   floor:
     type: string
+    maxLength: 30
+    pattern: "^.{0,30}$"
   city:
     type: string
+    maxLength: 60
+    pattern: "^.{0,60}$"
   postalCode:
     type: string
+    maxLength: 20
+    pattern: '^[A-Za-z0-9 \-]{0,20}$'
   parentOrganizationId:
     type: integer
     format: int64
   parentName:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   parentNameEn:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   parentNameDk:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   parentNumber:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9\-]{0,30}$'
   parentUnitType:
     type: string
+    maxLength: 50
+    pattern: "^[A-Za-z0-9_]{0,50}$"
   lastUpdateDate:
     type: string
     format: date-time

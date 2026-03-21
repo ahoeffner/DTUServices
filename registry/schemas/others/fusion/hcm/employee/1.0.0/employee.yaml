@@ -1,38 +1,65 @@
 title: Employee
 type: object
+additionalProperties: false
 properties:
   personId:
     type: integer
     format: int64
   employeeNumber:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9\-]{0,30}$'
   firstName:
     type: string
+    maxLength: 150
+    pattern: "^.{0,150}$"
   lastName:
     type: string
+    maxLength: 150
+    pattern: "^.{0,150}$"
   emailAddress:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   emailType:
     type: string
+    maxLength: 30
+    pattern: "^[A-Za-z0-9_]{0,30}$"
   userName:
     type: string
+    maxLength: 100
+    pattern: '^[A-Za-z0-9._\-@]{0,100}$'
   organizationId:
     type: integer
     format: int64
   orgNumber:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9\-]{0,30}$'
   assignmentStatusType:
     type: string
+    maxLength: 30
+    pattern: "^[A-Za-z0-9_]{0,30}$"
   assignmentType:
     type: string
+    maxLength: 30
+    pattern: "^[A-Za-z0-9_]{0,30}$"
   nameType:
     type: string
+    maxLength: 30
+    pattern: "^[A-Za-z0-9_]{0,30}$"
   businessTitle:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   titleEn:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   titleDk:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   dateStart:
     type: string
     format: date
@@ -53,27 +80,47 @@ properties:
     format: int64
   address1:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   address2:
     type: string
+    maxLength: 240
+    pattern: "^.{0,240}$"
   postalCode:
     type: string
+    maxLength: 20
+    pattern: '^[A-Za-z0-9 \-]{0,20}$'
   city:
     type: string
+    maxLength: 60
+    pattern: "^.{0,60}$"
   country:
     type: string
+    maxLength: 2
+    pattern: "^[A-Z]{2}$"
   supervisorFirstname:
     type: string
+    maxLength: 150
+    pattern: "^.{0,150}$"
   supervisorLastname:
     type: string
+    maxLength: 150
+    pattern: "^.{0,150}$"
   approvalAuthority:
     type: integer
     format: int32
   nationalIdentifierType:
     type: string
+    maxLength: 30
+    pattern: "^[A-Za-z0-9_]{0,30}$"
   nationalIdentifierNumber:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9\-]{0,30}$'
   cwisNumber:
     type: string
+    maxLength: 30
+    pattern: '^[A-Za-z0-9\-]{0,30}$'
   lastUpdateDate:
     type: string
     format: date-time
