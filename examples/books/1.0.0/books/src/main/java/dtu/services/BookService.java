@@ -43,7 +43,7 @@ public class BookService implements BooksApi
         System.out.println("user: "+providers.getUser());
         System.out.println("roles:");
 
-        for(String role : providers.getRoles())
+        for(String role : providers.getRequestedRoles())
             System.out.println("    "+role);
 
         List<Bog> books = bookstore.getAll();

@@ -1,9 +1,10 @@
 read -p "Username: " username
 read -sp "Password: " password
 
-curl -X POST http://localhost:9002/realms/dtu-service-users/protocol/openid-connect/token \
+curl -X POST http://localhost:9002/realms/dtu-services/protocol/openid-connect/token \
  -H "Content-Type: application/x-www-form-urlencoded" \
- -d "client_id=spring-boot-client" \
+ -d "client_id=dtu-services" \
  -d "username=$username" \
  -d "password=$password" \
- -d "grant_type=password"
+ -d "grant_type=password" \
+ -d "client_secret=$password"

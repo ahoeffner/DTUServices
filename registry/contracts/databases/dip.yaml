@@ -1,5 +1,6 @@
 properties:
   dev:
+    type: "sqlserver"
     description: "DIP Development"
     jdbc-test: "select 1"
     jdbc-url: "jdbc:sqlserver://PINTEGRA01.WIN.DTU.DK:1433;databaseName=TX_HUB_Topics;encrypt=true;trustServerCertificate=true;integratedSecurity=true;authenticationScheme=JavaKerberos;serverSpn=MSSQLSvc/PINTEGRA01.WIN.DTU.DK:1433@WIN.DTU.DK"
@@ -7,6 +8,7 @@ properties:
     pool-name: "MSSQL-Hikari-Pool"
 
   test:
+    type: "sqlserver"
     description: "DIP Test"
     jdbc-test: "select 1"
     jdbc-url: "jdbc:sqlserver://mssql-host:1433;databaseName=ReportingDB;encrypt=true;trustServerCertificate=true"
@@ -16,6 +18,7 @@ properties:
     pool-name: "MSSQL-Hikari-Pool"
 
   prod:
+    type: "sqlserver"
     description: "DIP Production"
     jdbc-test: "select 1"
     jdbc-url: "jdbc:sqlserver://mssql-host:1433;databaseName=ReportingDB;encrypt=true;trustServerCertificate=true"

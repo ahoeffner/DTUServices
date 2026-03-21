@@ -1,5 +1,6 @@
 properties:
   dev:
+    type: "oracle"
     description: "DTUBasen Development"
     jdbc-test: "select 1 from dual"
     jdbc-url: "jdbc:oracle:thin:@oracle-host:1521:xe"
@@ -9,6 +10,7 @@ properties:
     pool-name: "Oracle-Hikari-Pool"
 
   test:
+    type: "oracle"
     description: "DTUBasen Test"
     jdbc-test: "select 1 from dual"
     jdbc-url: "jdbc:oracle:thin:@oracle-host:1521:xe"
@@ -18,6 +20,7 @@ properties:
     pool-name: "Oracle-Hikari-Pool"
 
   prod:
+    type: "oracle"
     description: "DTUBasen Production"
     jdbc-test: "select 1 from dual"
     jdbc-url: "jdbc:oracle:thin:@oracle-host:1521:xe"
