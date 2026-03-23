@@ -1,6 +1,6 @@
-[submodule "libraries/java"]
-	path = libraries/java
-	url = ../DTUServiceJavaLibrary.git
 [submodule "libraries/fusion"]
 	path = libraries/fusion
 	url = git@github.com:jonathan-thomassen/DTUServiceFusionLibrary.git
+[submodule "libraries/spring"]
+	path = libraries/spring
+	url = ../DTUServiceJavaLibrary.git

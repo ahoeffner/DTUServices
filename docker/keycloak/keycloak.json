@@ -1,47 +1,56 @@
 {
-  "enabled": true,
+  "id": "dtu-services",
   "realm": "dtu-services",
-
+  "enabled": true,
   "accessTokenLifespan": 3600,
   "ssoSessionIdleTimeout": 3600,
   "ssoSessionMaxLifespan": 36000,
-
-  "clients":
-  [
+  "clients": [
     {
-      "enabled": true,
-
       "clientId": "dtu-services",
       "secret": "Manager1",
-
+      "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "directAccessGrantsEnabled": true,
-
-      "defaultClientScopes":
-      [
-          "web-origins",
-          "roles",
-          "profile",
-          "email"
+      "serviceAccountsEnabled": true,
+      "authorizationServicesEnabled": true,
+      "defaultClientScopes": [
+        "web-origins",
+        "roles",
+        "profile",
+        "email"
       ],
-
-      "webOrigins": ["*"],
-      "redirectUris": ["*"]
+      "webOrigins": [
+        "*"
+      ],
+      "redirectUris": [
+        "*"
+      ],
+      "authorizationSettings": {
+        "allowRemoteResourceManagement": true,
+        "policyEnforcementMode": "ENFORCING",
+        "policies": [
+          {
+            "name": "Allow Self Exchange",
+            "type": "client",
+            "logic": "POSITIVE",
+            "decisionStrategy": "UNANIMOUS",
+            "config": {
+              "clients": "[\"dtu-services\"]"
+            }
+          }
+        ]
+      }
     }
   ],
-  "users":
-  [
+  "users": [
     {
       "enabled": true,
-      "emailVerified": true,
-      "createdTimestamp": 1774000000000,
-
       "username": "test",
       "email": "test@nowhere.dtu",
       "firstName": "Test",
       "lastName": "User",
-
-      "requiredActions": [],
+      "emailVerified": true,
       "credentials": [
         {
           "type": "password",
@@ -49,7 +58,10 @@
           "temporary": false
         }
       ],
-      "realmRoles": ["metrics", "books:all"]
+      "realmRoles": [
+        "metrics",
+        "books:all"
+      ]
     }
   ]
-}
+}     
