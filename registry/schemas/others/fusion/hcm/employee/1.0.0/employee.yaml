@@ -1,5 +1,5 @@
-title: Employee
 type: object
+description: Oracle Fusion HCM worker (employee) assignment record.
 additionalProperties: false
 properties:
   personId:

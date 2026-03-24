@@ -1,4 +1,5 @@
 type: object
+description: Oracle Fusion HCM organization unit.
 additionalProperties: false
 properties:
   organizationId:

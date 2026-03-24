@@ -1,5 +1,4 @@
 type: object
-title: Metrics
 description: Root object containing service identification and performance metrics.
 additionalProperties: false
 required:
@@ -35,6 +34,7 @@ properties:
     maxItems: 500
     items:
       type: object
+      description: Performance stats for a single REST endpoint, grouped by HTTP method.
       additionalProperties: false
       required:
         - path
@@ -61,6 +61,7 @@ properties:
           maxItems: 500
           items:
             type: object
+            description: Call counts and response time statistics for a single HTTP status code.
             additionalProperties: false
             required:
               - code

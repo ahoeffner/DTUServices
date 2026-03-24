@@ -1,4 +1,5 @@
 type: object
+description: Oracle Fusion ERP project.
 required:
   - projectId
 additionalProperties: false

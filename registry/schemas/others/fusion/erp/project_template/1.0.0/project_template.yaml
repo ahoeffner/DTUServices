@@ -1,68 +1,55 @@
 type: object
-title: ProjectTemplate
 description: A Fusion Cloud project template defining default settings for new projects.
-
 required:
   - projectTemplateId
   - projectTemplateName
 additionalProperties: false
-
 properties:
   projectTemplateId:
     type: integer
     format: int64
     minimum: 1
-
   projectTemplateName:
     type: string
     minLength: 1
     maxLength: 255
     pattern: ^[\w\s\-\.]{1,255}$
-
   projectTemplateNumber:
     type: string
     minLength: 1
     maxLength: 50
     pattern: ^[\w\-\.]+$
-
   projectTemplateDescription:
     type: string
     minLength: 1
     maxLength: 2000
     pattern: ^[\w\s\-\.]{1,2000}$
-
   projectTemplateStartDate:
     type: string
     format: date
-
   projectTemplateEndDate:
     type: string
     format: date
-
   businessUnitName:
     type: string
     minLength: 1
     maxLength: 255
     pattern: ^[\w\s\-\.]{1,255}$
-
   legalEntityName:
     type: string
     minLength: 1
     maxLength: 255
     pattern: ^[\w\s\-\.]{1,255}$
-
   projectTypeName:
     type: string
     minLength: 1
     maxLength: 100
     pattern: ^[\w\s\-\.]{1,100}$
-
   initialProjectStatus:
     type: string
     minLength: 1
     maxLength: 50
     pattern: ^[A-Z_]+$
-
   projectCurrencyCode:
     type: string
     minLength: 3
