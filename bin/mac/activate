@@ -1,0 +1,14 @@
+# 1. Detect the script directory (Works in both Zsh and Bash)
+# If BASH_SOURCE is empty, we use %x (Zsh's way of identifying the source file)
+
+SCRIPT_PATH="${BASH_SOURCE[0]:-${(%):-%x}}"
+SCRIPT_DIR=$(cd -P -- "$(dirname -- "$SCRIPT_PATH")" &> /dev/null && pwd)
+
+# 2. Add to PATH only if it's not already there
+if [[ ":$PATH:" != *":$SCRIPT_DIR:"* ]]
+then
+    export PATH="$SCRIPT_DIR:$PATH"
+    echo "Added to PATH: $SCRIPT_DIR"
+else
+    echo "Already in PATH: $SCRIPT_DIR"
+fi
